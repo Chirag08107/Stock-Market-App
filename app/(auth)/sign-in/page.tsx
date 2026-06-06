@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import InputField from '@/components/ui/forms/inputField';
 import FooterLink from '@/components/ui/forms/FooterLink';
 import {useRouter} from "next/navigation";
+import { signInWithEmail } from '@/lib/actions/auth.actions';
+import { toast } from 'sonner';
 
 const SignIn = () => {
     const router = useRouter()
@@ -43,7 +45,7 @@ const SignIn = () => {
                     placeholder="contact@gmail.com"
                     register={register}
                     error={errors.email}
-                    validation={{ required: 'Email is required', pattern: /^\w+@\w+\.\w+$/ }}
+                    validation={{ required: 'Email is required', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
                 />
 
                 <InputField
